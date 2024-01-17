@@ -66,7 +66,7 @@ const userRegister = async (req, res) => {
         }
 
 
-        const respuestaUsuario = {
+        const resUser = {
             id: usuario.id,
             name: usuario.name,
             lastName: usuario.lastName,
@@ -76,7 +76,7 @@ const userRegister = async (req, res) => {
             rol: usuario.rol,
         };
 
-        res.status(200).json(respuestaUsuario);
+        res.status(200).json(resUser);
     } catch (error) {
         console.error(error);
         res.status(500).json({

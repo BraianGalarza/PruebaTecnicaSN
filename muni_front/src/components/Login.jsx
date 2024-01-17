@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logoMunicipalidad from "../assets/sn-logo.png";
 import { useNavigate } from "react-router-dom"
+import  *  as loginService  from "../services/loginServices";
+import { loginTest } from "../utils/sessionHandler";
 
 
 
@@ -9,10 +11,30 @@ const Login = () => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [user, setUser] = useState('')
+    const navigate = useNavigate();
+
+
+    function navigateLogin() {
+        navigate("/tramites");
+    } 
+
 
     const onSubmitForm = (e) => {
         e.preventDefault();
+        let jsonUserLogin = {
+            email,
+            password
+        }
+        loginService.loginUser(jsonUserLogin,loginTest,setUser)
     };
+
+    useEffect(() => {
+        if (user) {
+            navigateLogin();
+        }
+    }, [user])
+    
 
     return (
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
@@ -48,11 +70,6 @@ const Login = () => {
                             <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
                                 Contraseña
                             </label>
-                            {/* <div className="text-sm">
-                                <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">
-                                    Forgot password?
-                                </a>
-                            </div> */}
                         </div>
                         <div className="mt-2">
                             <input

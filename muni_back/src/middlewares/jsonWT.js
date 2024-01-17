@@ -3,8 +3,8 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-function generateAccessToken(username, expirationTime) {
-  return jsonWT.sign(username, process.env.TOKEN_SECRET, { expiresIn: expirationTime });
+function generateAccessToken(payload, expirationTime) {
+  return jsonWT.sign(payload,"MuniKey", { expiresIn: expirationTime });
 }
 
 function authenticateToken(req, res, next) {
@@ -13,9 +13,8 @@ function authenticateToken(req, res, next) {
 
   if (token == null) return res.sendStatus(401);
 
-  jsonWT.verify(token, process.env.TOKEN_SECRET, (err, user) => {
+  jsonWT.verify(token, "MuniKey", (err, user) => {
     if (err) return res.sendStatus(403);
-
     req.user = user;
     next();
   });
