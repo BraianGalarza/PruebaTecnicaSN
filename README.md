@@ -17,11 +17,7 @@ El sistema incluirá:
 - Visualización de la lista de trámites por usuario.
 - Gestión de datos personales del usuario.
 - Área de administración con la capacidad de modificar comentarios y estados de los trámites.
-
-El sistema no incluirá:
-- Integración con sistemas externos.
-- Funcionalidades avanzadas de seguridad.
-
+- 
 ## 4. Requisitos:
 
 ### Requisitos Funcionales:
