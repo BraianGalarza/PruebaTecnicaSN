@@ -2,45 +2,40 @@ import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import logoMunicipalidad from "../assets/sn-sintesis.png";
-import { logout , getItems } from "../utils/sessionHandler";
+import { logout, getItems, getRol } from "../utils/sessionHandler";
 
 
+const NavBar = () => {
+  const rol = getRol()
+  console.log(rol)
+  const user = {
+    name: 'Tom Cook',
+    email: 'tom@example.com',
+    imageUrl:
+      'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+  }
+  const navigation = [
+    { name: 'Tramites', href: '/tramites', current: true },
+    { name: 'Mis Tramites', href: '/usuario/tramites', current: false },
+    { name: 'Datos Personales', href: '/usuario', current: false },
+  ]
 
-const user = {
-  name: 'Tom Cook',
-  email: 'tom@example.com',
-  imageUrl:
-    'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-}
-const navigation = [
-  { name: 'Mis Tramites', href: '/tramites', current: true },
-  { name: 'Nuevo Tramite', href: '/usuario', current: false },
-  { name: 'Datos Personales', href: '/usuario', current: false },
-]
+  // const cerrarSession = () => {
+  //   console.log("cerrar sesion")
+  //   // logout();
+  // };
+  const userNavigation = [
+    { name: 'Cerrar sesión', href: '/login'},
+    // { name: 'Cerrar sesión', href: '/login', onClick: cerrarSession() },
+  ]
 
-const cerrarSession = () => {
-  console.log("asdasdasd")
-  logout();
-};
-const userNavigation = [
-  { name: 'Cerrar sesión', href: '/login', onClick: cerrarSession() },
-]
+  function classNames(...classes) {
+    return classes.filter(Boolean).join(' ')
+  }
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
 
-export default function Example() {
   return (
     <>
-      {/*
-        This example requires updating your template:
-
-        ```
-        <html class="h-full bg-gray-100">
-        <body class="h-full">
-        ```
-      */}
       <div className="min-h-full">
         <Disclosure as="nav" className="bg-gray-800">
           {({ open }) => (
@@ -76,7 +71,7 @@ export default function Example() {
                     </div>
                   </div>
                   <div className="hidden md:block">
-                    <div className="ml-4 flex items-center md:ml-6">
+                    <div className="flex items-center">
                       {/* <button
                         type="button"
                         className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
@@ -85,6 +80,17 @@ export default function Example() {
                         <span className="sr-only">View notifications</span>
                         <BellIcon className="h-6 w-6" aria-hidden="true" />
                       </button> */}
+                      {/* Condición para renderizar el botón de admin */}
+                      {rol === 'admin' && (
+                        <a
+                          href="/admin"
+                          className={classNames(
+                            'bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium pr-3'
+                          )}
+                        >
+                          Admin
+                        </a>
+                      )}
 
                       {/* Profile dropdown */}
                       <Menu as="div" className="relative ml-3">
@@ -114,7 +120,7 @@ export default function Example() {
                                       active ? 'bg-gray-100' : '',
                                       'block px-4 py-2 text-sm text-gray-700'
                                     )}
-                                    onClick={item.onClick}
+                                    // onClick={item.onClick}
                                   >
                                     {item.name}
                                   </a>
@@ -204,5 +210,7 @@ export default function Example() {
         </main> */}
       </div>
     </>
-  )
-}
+  );
+};
+
+export default NavBar;

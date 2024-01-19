@@ -5,6 +5,10 @@ import Register from "./components/register.jsx";
 import RootLayout from "./layouts/RootLayout.jsx";
 import Tramites from "./components/tramites.jsx";
 import CheckLogin from "./components/checkLogin.jsx";
+import UserTramites from "./components/userTramites.jsx";
+import FormTramite from "./components/formTramite.jsx";
+import CheckAdmin from "./components/checkAdmin.jsx";
+import AdminTramites from "./components/adminTramites.jsx";
 
 function App() {
 
@@ -17,8 +21,10 @@ function App() {
           <Route path="/registrar" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<Login />}/>
+          <Route path="/usuario/tramites" element={<CheckLogin><UserTramites /></CheckLogin>} />
           <Route path="/tramites" element={<CheckLogin><Tramites /></CheckLogin>} />
-          <Route path="/usuario" element={<CheckLogin><Tramites /></CheckLogin>} />
+          <Route path="/tramites/renovar-carnet-de-conducir" element={<CheckLogin><FormTramite /></CheckLogin>} />
+          <Route path="/admin" element={<CheckLogin><CheckAdmin><AdminTramites /></CheckAdmin></CheckLogin>} />
         </Routes>
       </RootLayout>
     </Router>

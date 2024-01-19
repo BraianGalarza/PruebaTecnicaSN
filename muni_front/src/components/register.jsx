@@ -75,7 +75,7 @@ const Register = () => {
                             <input
                                 id="lastName"
                                 name="lastName"
-                                type="lastName"
+                                type="string"
                                 autoComplete="current-lastName"
                                 required
                                 onChange={e => setLastName(e.target.value)}

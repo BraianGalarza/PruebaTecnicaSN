@@ -47,21 +47,55 @@ export const isLogged = () => {
         return false;
     }
 };
+export const isAdmin = () => {
+    const rol = JSON.parse(localStorage.getItem("rol"))
+    console.log(rol,"rol")
+    if (rol) {
+        if (
+            rol == "admin"
+        ) {
+            return true;
+        } else {
+            return false;
+        }
+    } else {
+        return false;
+    }
+};
 
 export const getItems = () => {
 
     if (isLogged()) {
         const items = {
-            name: localStorage.getItem("name"),
-            lastName: localStorage.getItem("lastName"),
-            email: localStorage.getItem("email"),
-            dni: localStorage.getItem("dni"),
-            date: localStorage.getItem("date"),
-            rol: localStorage.getItem("rol"),
+            name: JSON.parse(localStorage.getItem("name")),
+            lastName: JSON.parse(localStorage.getItem("lastName")),
+            email: JSON.parse(localStorage.getItem("email")),
+            dni: JSON.parse(localStorage.getItem("dni")),
+            date: JSON.parse(localStorage.getItem("date")),
+            rol: JSON.parse(localStorage.getItem("rol")),
             accessToken: localStorage.getItem("accessToken"),
             sessionExpired: localStorage.getItem("sessionExpired"),
         };
         return items;
+    }
+
+    return null;
+};
+export const getRol = () => {
+
+    if (isLogged()) {
+        const rol = JSON.parse(localStorage.getItem("rol"))
+
+        return rol;
+    }
+
+    return null;
+};
+export const getDni = () => {
+
+    if (isLogged()) {
+        const dni = JSON.parse(localStorage.getItem("dni"))
+        return dni;
     }
 
     return null;
