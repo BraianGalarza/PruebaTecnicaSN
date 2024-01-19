@@ -36,3 +36,53 @@ Backend para un sistema de gestión de trámites, desarrollado con Node.js, Expr
 - `DB_PASSWORD`: Contraseña de la base de datos.
 - `JWT_PASSWORD`: Contraseña secreta para la generación de tokens JWT.
 - `FTP_PATH`: Ruta para el almacenamiento de archivos mediante FTP.
+
+## APIs
+
+
+- Login
+$POST \
+       --url "http://localhost:3030/login" \
+       --body {email,
+            password}
+
+- Register
+$POST \
+       --url 'http://localhost:3030/new/register' \
+       --body {name,
+            lastName,
+            date,
+            dni,
+            email,
+            password,
+            rol}
+
+- Nuevo Tramite
+$POST \
+        --url 'http://localhost:3030/tramite/renovarCarnet' \
+        --body {idTramite,
+            nombreTramite,
+            domicilio,
+            vista,
+            vistaDetalle,
+            grupoSanguineo,
+            examenPsicofisico,
+            imagenLicencia}
+
+- Descargar Imagen Tramite
+$POST \
+        --url 'http://localhost:3030/tramite/download' \
+        --body { imagenLicencia } 
+
+- Cambiar estado
+$GET \
+       --url 'http://localhost:3030/tramite//update/:id/:estado/:comentario' \
+
+- Lista de Tramites por Usuario
+$GET \
+       --url 'http://localhost:3030/tramite/:idUser' \
+
+- Lista de todos los Tramites
+$GET \
+       --url 'http://localhost:3030/tramite/get/all' \
+
