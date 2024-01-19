@@ -9,6 +9,7 @@ import UserTramites from "./components/userTramites.jsx";
 import FormTramite from "./components/formTramite.jsx";
 import CheckAdmin from "./components/checkAdmin.jsx";
 import AdminTramites from "./components/adminTramites.jsx";
+import UserFormData from "./components/userFormData.jsx";
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/" element={<Login />}/>
           <Route path="/usuario/tramites" element={<CheckLogin><UserTramites /></CheckLogin>} />
+          <Route path="/usuario" element={<CheckLogin><UserFormData /></CheckLogin>} />
           <Route path="/tramites" element={<CheckLogin><Tramites /></CheckLogin>} />
           <Route path="/tramites/renovar-carnet-de-conducir" element={<CheckLogin><FormTramite /></CheckLogin>} />
           <Route path="/admin" element={<CheckLogin><CheckAdmin><AdminTramites /></CheckAdmin></CheckLogin>} />

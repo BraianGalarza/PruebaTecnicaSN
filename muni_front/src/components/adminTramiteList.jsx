@@ -34,6 +34,12 @@ const AdminTramiteList = (props) => {
 
     const columnas = [
         {
+            name: "NRO. DEL TRAMITE",
+            selector: (row) => row.id,
+            sortable: true,
+            reorder: true,
+        },
+        {
             name: "TRÁMITE",
             selector: (row) => row.nombreTramite,
             sortable: true,
@@ -67,7 +73,7 @@ const AdminTramiteList = (props) => {
                     props.setTramiteHandler(record)
                   }}
                 >
-                    INFO
+                    EDITAR
                 </button>
               </div>
             )

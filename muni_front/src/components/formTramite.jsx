@@ -36,10 +36,6 @@ const FormTramite = () => {
     const handleImage = (e) => {
         setImagenLicencia(e.target.files[0])
     }
-    const hanldeDescargar = (e) => {
-        let file = { imagenLicencia: "tramitesPDF/discapacitado.png" }
-        tramiteService.descargarTramite(file)
-    }
 
     return (
         <div className="flex min-h-full flex-1 flex-row justify-center px-6 py-12 lg:px-8">
@@ -64,7 +60,7 @@ const FormTramite = () => {
                 </div>
             </div>
 
-            <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+            <div className="p-2 rounded-md mt-10 sm:mx-auto sm:w-full sm:max-w-sm bg-gray-200">
                 <h2 className="mb-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
                     Formulario
                 </h2>
@@ -148,22 +144,6 @@ const FormTramite = () => {
                                 name="examenPsicofisico"
                                 type="checkbox"
                                 onChange={e => setExamenPsicofisico(e.target.checked)}
-                                className="pl-2  ml-2 block w-100 rounded-md border-0 py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                            />
-                        </div>
-                    </div>
-                    <div>
-                        <div className="flex items-center justify-between">
-                            <label htmlFor="" className="block text-sm font-medium leading-6 text-gray-900">
-                                descargar
-                            </label>
-                        </div>
-                        <div className="mt-2">
-                            <input
-                                id="examenPsicofisico"
-                                name="examenPsicofisico"
-                                type="checkbox"
-                                onChange={e => hanldeDescargar()}
                                 className="pl-2  ml-2 block w-100 rounded-md border-0 py-1.5 text-gray-900 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                             />
                         </div>

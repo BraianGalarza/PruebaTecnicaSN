@@ -3,7 +3,7 @@ import DataTable from "react-data-table-component";
 
 const TramiteList = ({ tramites }) => {
     const datos = tramites;
-
+console.log(datos)
     const paginacionOpciones = {
         rowsPerPageText: "Filas por página",
         rangeSeparatorText: "de",
@@ -34,8 +34,26 @@ const TramiteList = ({ tramites }) => {
 
     const columnas = [
         {
+            name: "NRO. DEL TRAMITE",
+            selector: (row) => row.id,
+            sortable: true,
+            reorder: true,
+        },
+        {
             name: "TRÁMITE",
             selector: (row) => row.nombreTramite,
+            sortable: true,
+            reorder: true,
+        },
+        {
+            name: "DOMICILIO",
+            selector: (row) => row.domicilio,
+            sortable: true,
+            reorder: true,
+        },
+        {
+            name: "GRUPO SANGUÍNEO",
+            selector: (row) => row.grupoSanguineo,
             sortable: true,
             reorder: true,
         },
