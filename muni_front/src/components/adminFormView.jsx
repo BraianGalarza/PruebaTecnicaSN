@@ -38,7 +38,7 @@ const AdminFormView = (props) => {
 
   const hanldeDescargar = () => {
     let file = { imagenLicencia: tramiteDetails.imagenLicencia }
-    tramiteService.descargarTramite(file)
+    tramiteService.downloadTramite(file)
   }
 
   useEffect(() => {

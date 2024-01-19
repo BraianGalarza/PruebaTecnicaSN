@@ -2,9 +2,10 @@ const jsonWT = require('jsonwebtoken');
 const dotenv = require('dotenv');
 
 dotenv.config();
+const jwtKey = process.env.JWT_PASSWORD;
 
 function generateAccessToken(payload, expirationTime) {
-  return jsonWT.sign(payload,"MuniKey", { expiresIn: expirationTime });
+  return jsonWT.sign(payload,jwtKey, { expiresIn: expirationTime });
 }
 
 function authenticateToken(req, res, next) {
@@ -13,7 +14,7 @@ function authenticateToken(req, res, next) {
 
   if (token == null) return res.sendStatus(401);
 
-  jsonWT.verify(token, "MuniKey", (err, user) => {
+  jsonWT.verify(token, jwtKey, (err, user) => {
     if (err) return res.sendStatus(403);
     req.user = user;
     next();

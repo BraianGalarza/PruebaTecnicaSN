@@ -13,8 +13,6 @@ import UserFormData from "./components/userFormData.jsx";
 
 function App() {
 
-
-
   return (
     <Router>
       <RootLayout>

@@ -1,8 +1,6 @@
 import axios from "axios";
 import Swal from "sweetalert2";
 
-
-
 export const renovarCarnet = (jsonUser) => {
     axios.post("http://localhost:3030/tramite/renovarCarnet",
         jsonUser
@@ -41,8 +39,8 @@ export const renovarCarnet = (jsonUser) => {
         });
 }
 
-export const descargarTramite = (file) => {
-    axios.post("http://localhost:3030/tramite/descargar",
+export const downloadTramite = (file) => {
+    axios.post("http://localhost:3030/tramite/download",
         file
     ).then((res) => {
         const data = res.data;

@@ -1,8 +1,6 @@
 import axios from "axios";
 import Swal from "sweetalert2";
 
-
-
 export const loginUser = (jsonUserLogin, loginTest, setUser) => {
     axios.post("http://localhost:3030/login",
     jsonUserLogin

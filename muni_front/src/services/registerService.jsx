@@ -1,8 +1,6 @@
 import axios from "axios";
 import Swal from "sweetalert2";
 
-
-
 export const registerUser = (jsonUser, navigateLogin) => {
     axios.post("http://localhost:3030/new/register",
         jsonUser

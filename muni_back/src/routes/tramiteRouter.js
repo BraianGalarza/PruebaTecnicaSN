@@ -5,13 +5,12 @@ const tramiteRouter = Router();
 const multer = require('multer');
 const upload = multer({ dest: '/tramitesPDF' });
 
-// tramiteRouter.post("/renovarCarnet", renovarCarnet);
 
 tramiteRouter.get("/update/:id/:estado/:comentario", changeEstateTramite);
 
 tramiteRouter.post("/renovarCarnet", upload.single('imagenLicencia'), renovarCarnet);
 
-tramiteRouter.post("/descargar", downloadFileTramite);
+tramiteRouter.post("/download", downloadFileTramite);
 
 tramiteRouter.get("/:idUser", listTramitesByIdUser);
 

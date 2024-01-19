@@ -2,7 +2,6 @@
 const minutesExpiration = 30;
 
 export const loginTest = (user) => {
-    console.log("hola", user)
     localStorage.setItem("name", JSON.stringify(user.name));
     localStorage.setItem("lastName", JSON.stringify(user.lastName));
     localStorage.setItem("email", JSON.stringify(user.email));

@@ -2,7 +2,6 @@ const bcrypt = require("bcrypt");
 const User = require("../models/User");
 const { generateAccessToken } = require("../middlewares/jsonWT");
 const dotenv = require('dotenv');
-const jwt = require('jsonwebtoken');
 
 // ########### Configuración de variables de entorno
 dotenv.config();
