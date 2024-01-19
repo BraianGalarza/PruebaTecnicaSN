@@ -1,4 +1,5 @@
 const express = require("express");
+require('dotenv').config();
 
 const routes = require("./src/routes/index");
 const app = express();
@@ -32,7 +33,7 @@ const initializeApp = async () => {
     });
   
   } catch (error) {
-    res.status(500).send('Error al interno');
+    throw new Error(error);
   }
 };
 

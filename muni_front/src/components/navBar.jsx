@@ -7,7 +7,6 @@ import { logout, getItems, getRol } from "../utils/sessionHandler";
 
 const NavBar = () => {
   const rol = getRol()
-  console.log(rol)
   const user = {
     name: 'Tom Cook',
     email: 'tom@example.com',
@@ -20,13 +19,8 @@ const NavBar = () => {
     { name: 'Datos Personales', href: '/usuario', current: false },
   ]
 
-  // const cerrarSession = () => {
-  //   console.log("cerrar sesion")
-  //   // logout();
-  // };
   const userNavigation = [
     { name: 'Cerrar sesión', href: '/login'},
-    // { name: 'Cerrar sesión', href: '/login', onClick: cerrarSession() },
   ]
 
   function classNames(...classes) {
